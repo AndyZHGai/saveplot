@@ -33,9 +33,7 @@ saveplot <- function(plot = plot(1:10), filename = "test", width = 10, height = 
     grDevices::dev.off()
   }
   if (inherits(plot, "NULL")) {
-    pdf(file = filename, width = width, height = height)
-    print(plot)
-    grDevices::dev.off()
+    stop("The plot using base R should be saved manually!")
   }
 }
 
