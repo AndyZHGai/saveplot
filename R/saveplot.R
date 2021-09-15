@@ -32,7 +32,7 @@ saveplot <- function(plot = plot(1:10), filename = "test", width = 10, height = 
     grid::grid.draw(plot$gtable)
   }
   if (inherits(plot, "NULL")) {
-    pdf(paste0(filename, ".pdf"), width = width, height = height)
+    pdf(file = filename, width = width, height = height)
     plot
   }
   grDevices::dev.off()
