@@ -15,9 +15,10 @@
 saveplot <- function(plot = plot(1:10), filename = "test", width = 10, height = 10, ...) {
   stopifnot(!missing(plot))
   if (missing(filename)) {
-    filename <- paste0(sample(LETTERS, 1), sample(letters, 1), sample(0:9, 1))
+    filename <- paste(sample(LETTERS, 1), sample(letters, 1),
+                      sample(0:9, 1), ".pdf", sep = "")
   } else {
-    filename <- paste0(filename, sample(0:9, 1), ".pdf")
+    filename <- paste(filename, sample(0:9, 1), ".pdf", sep = "")
   }
   if (inherits(plot, "ggplot")) {
     ggplot2::ggsave(filename = filename,
