@@ -30,11 +30,12 @@ saveplot <- function(plot = plot(1:10), filename = "test", width = 10, height = 
     pdf(file = filename, width = width, height = height)
     grid::grid.newpage()
     grid::grid.draw(plot$gtable)
+    grDevices::dev.off()
   }
   if (inherits(plot, "NULL")) {
     pdf(file = filename, width = width, height = height)
-    plot
+    print(plot)
+    grDevices::dev.off()
   }
-  grDevices::dev.off()
 }
 
